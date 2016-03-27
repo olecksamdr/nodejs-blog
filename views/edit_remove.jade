@@ -1,0 +1,60 @@
+extends layout/page.jade
+
+block css
+	link(rel='stylesheet', href='../../css/articlePageRE.css')
+block js
+	script(src="../../js/build/userButton.js")
+block content
+	include ./includes/navigation.jade
+
+	div.fullScreen
+		div(class='cont')
+			div(class='load')
+			div(class='line')
+			h3(id='prog')
+
+	div(class='before-articles')
+		h3 Останні статті
+	div(class='center')
+		- each article in articles
+			section(class='wrapper-1')
+				div.remove(data-id='#{article._id}')
+				div.edit(data-id='#{article._id}')
+
+				h1= article.title
+				if article.banner != null
+					img(src= imgPath + 'loaded/' + article.banner)
+				p!= article.desc
+				p.date #{parseDate(article.created_at)}
+				a(class='article-link', href='/blog/' + article._id) читати далі
+
+		.a-container
+			b= currentPage
+			if (pages > 1)
+				- var i = 1
+				- var count = Math.floor(articleCount / 6) + 1;
+				while i <= pages
+					a(href='http://localhost:8080/manage/page/' + i)= i++
+
+	script.
+		var aCont = document.querySelectorAll('.a-container')[0];
+		var n = (window.location.href.match(/\/(\d+)/)) ? window.location.href.match(/\/(\d+)/)[1] : false;
+		var a = aCont.children;
+
+		(n) ? n = n[1] : '';
+		if (n && a)
+			a[n].className = 'active';
+
+	- function parseDate (date) {
+	-	var month = ['січ.', 'лют.', 'бер.', 'квіт.', 'трав.', 'чер.', 'лип.', 'серп.', 'вер.', 'жовт.', 'лист.', 'груд.'];
+	-	var y = date.getFullYear();
+	-	var m = month[date.getMonth()];
+	-	var d = date.getDate();
+
+	-	return d + ' ' + m + ' ' + y;
+	-	}
+
+	//- script(src= imgPath + 'js/vendor/require.js', data-main= imgPath + 'js/edit_remove')
+	script(src= imgPath + 'js/vendor/require.js', data-main= imgPath + 'js/build/edit_remove')
+
+

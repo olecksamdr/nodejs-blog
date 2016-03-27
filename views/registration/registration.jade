@@ -1,0 +1,146 @@
+extends ../layout/page.jade
+
+block css
+	//- link(rel="stylesheet", href="css/reset.css")
+	link(rel="stylesheet", href="css/regStyle.css")
+
+block js
+	script(src="js/registration/registration.js")
+
+block content
+	img(src="img/forRegistration/user.svg", alt="user icon", class="logo")
+	div.cd-tabs
+		nav
+			ul.cd-tabs-navigation
+				li
+					a(href="#0", data-content="login", class="selected") увійти
+				li
+					a(href="#0", data-content="signup") реєстрація
+
+		ul.cd-tabs-content
+			li(data-content="login", class="selected")
+				form(name="login-form")
+					div.form-fild
+						label(for="username") Ім'я користувача
+						input(type="text", name="username")
+					div.form-fild
+						label(for="password") пароль
+						input(type="password", name="password")
+					span.error
+					button(type="submit") Увійти
+
+			li(data-content="signup")
+				form(name="signup-form")
+
+					div.form-fild
+						label(for="susername") Ім'я користувача
+						input(type="text", name="susername")
+
+					div.form-fild
+						label(for="spassword") пароль
+						input(type="password" name="spassword")
+
+					div.form-fild
+						label(for="spassword2") пароль ще раз
+						input(type="password", name="spassword2")
+
+					span.error
+					button(type="submit") Увійти
+	script.
+		document.forms['login-form'].addEventListener('submit', formSubmited, false);
+		document.forms['signup-form'].addEventListener('submit', formSubmited, false);
+
+		function formSubmited(event) {
+			event.preventDefault();
+
+			var form = event.target;
+			var path;
+
+			if (form == document.forms['login-form']) {
+				path = '/login';
+
+				var error = form.querySelector('.error');
+
+				if (form.elements.username.value ==  '') {
+					error.style.display =  'block';
+					error.innerHTML = 'Ви не ввели імені користувача';
+					return false;
+				}
+				if (form.elements.password.value ==  '') {
+					error.style.display =  'block';
+					error.innerHTML = 'Ви не ввели пароль';
+					return false;
+				}
+
+			} else {
+				path = '/signup';
+
+				var error = form.querySelector('.error');
+
+				if (form.elements.spassword.value !== form.elements.spassword2.value) {
+					error.style.display =  'block';
+					error.innerHTML = 'Паролі не співпадають';
+					return false;
+				}
+
+				if (form.elements.susername.value ==  '') {
+					error.style.display =  'block';
+					error.innerHTML = 'Ви не ввели імені користувача';
+					return false;
+				}
+
+				if (form.elements.spassword.value ==  '') {
+					error.style.display =  'block';
+					error.innerHTML = 'Ви не ввели пароль';
+					return false;
+				}
+			}
+
+			error.style.display =  'none';
+			error.innerHTML = '';
+
+			var btn = form.getElementsByTagName('button')[0];
+			btn.innerHTML = '...'
+
+			sendForm(form);
+
+			function sendForm(form) {
+				xhr = new XMLHttpRequest();
+
+				xhr.open('POST', path, true);
+
+				xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+				xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+				var data = {
+						username: form.elements[0].value,
+						password: form.elements[1].value
+						};
+
+				data = JSON.stringify(data);
+
+				xhr.send(data);
+
+				var error =  form.querySelector('.error');
+				xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+
+				if (xhr.status != 200) {
+					var err = JSON.parse(xhr.responseText);
+					error.style.display =  'block';
+					error.innerHTML = err.message;
+
+					console.log(xhr.status + ': ' + xhr.statusText);
+
+					return false;
+				} else {
+					form.clasaName = 'alert-success';
+					form.innerHTML = 'Ви ввійшли на сайт';
+					window.location.href = '/';
+					return true;
+				}
+			}
+		}
+
+		return false;
+		}

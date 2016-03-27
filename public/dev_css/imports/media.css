@@ -1,0 +1,93 @@
+
+/* стилі для пристроїв з різним розширенням екрану */
+
+@media screen and (max-width: 950px) {
+  .wrapper-1 {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .wrapper-1 p {
+    /*padding: 0 0 2px 15px*/
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .wrapper-1 {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+    section.module.parallax h1 {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+  #menu {
+      height: 45px;
+      background-image: url(../img/menu2.svg);
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      /*opacity: .9;*/
+
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+  }
+
+  #menu a {
+    position: relative;
+    display: none;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+
+  #menu .user {
+    display: none;
+  }
+
+  .before-articles {
+      margin: 0px auto;
+      width: 170px;
+      font-size: 20px;
+      margin-top: 100px;
+  }
+
+  .before-articles::before {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: -71px;
+      margin-top: -30px;
+  }
+
+  .before-articles::after {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    right: -73px;
+    margin-top: -30px;
+  }
+
+  .wrapper-1 h1 {
+    font: bold 25px 'Arimo', sans-serif;
+  }
+  .wrapper-1 p {
+    padding: 0 15px;
+    font-size: 18px;
+    text-align: left;
+  }
+  section .date {
+    margin: 25px auto;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+  }
+}
+

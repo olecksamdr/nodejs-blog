@@ -1,0 +1,6 @@
+iframe {
+	margin: 5px auto;
+	border: none;
+	display: block;
+	box-shadow: 16px 13px 26px rgba(0,0,0,.4);
+}

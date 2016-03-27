@@ -1,0 +1,24 @@
+extends layout/page.jade
+
+block css
+	link(rel='stylesheet', href='../css/blogPage.css')
+block js
+	script(src="../js/build/userButton.js")
+
+
+block content
+		include ./includes/navigation.jade
+
+		div#wrapper
+			div.flex-wrapper.
+				!{data.body}
+			p.date #{parseDate(data.created_at)}
+
+		-function parseDate (date) {
+		-	var month = ['січ.', 'лют.', 'бер.', 'квіт.', 'трав.', 'чер.', 'лип.', 'серп.', 'вер.', 'жовт.', 'лист.', 'груд.'];
+		-	var y = date.getFullYear();
+		-	var m = month[date.getMonth()];
+		-	var d = date.getDate();
+
+		-	return d + ' ' + m + ' ' + y;
+		-	}

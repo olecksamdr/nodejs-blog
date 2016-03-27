@@ -1,0 +1,65 @@
+extends layout/page.jade
+
+block css
+	link(rel='stylesheet', href='css/blogPage.css')
+block js
+	script(src='js/vendor/prism.js')
+	script(src="js/build/userButton.js")
+block content
+	include ./includes/navigation.jade
+
+	div.fullScreen
+		div(class='cont')
+			div(class='load')
+			div(class='line')
+			h3(id='prog') 
+
+	div#wrapper
+		div.flex-wrapper
+			h1.title Українські байки
+			//- img(src='img/blogPage/kazka.jpg', class='banner')
+			div.banner
+				img(src='img/blogPage/kazka.jpg', id='bn')
+				div.addBanner.rm
+				div.delete.rm
+				div.plusA.rm
+
+			div.container
+				p.
+					Байка належить до жанру дидактичної літератури, в якому разом із короткою розповіддю прозою чи віршем сформульовано моральний висновок, що надає розповіді алегоричного характеру. Головним принципом творення байки є алегорія – перенесення рис характеру людей в образи тварин, птахів риб, рослин тощо.  Розповідною частиною байка подібна до казки, новели, анекдоту, а висновком-мораллю – до прислів`їв і приказок. У байці найчастіше наявний комізм або соціальна критика
+				div.delete.rm
+				div.plusA.rm
+
+			div.container
+				div.img-container.left
+					div.arrLeft.rm
+					div.arrCenter.rm
+					div.arrRight.rm
+					img(src='img/blogPage/colobok.jpg')
+					div.resize.rm
+					div.add.rm
+					div.delete.rm
+				p.
+					Елементи байки є у українському фольклорі з найдавніших часів. Але слід відрізняти байку від казок про тварин. У цих казках звірі змальовані як вони є в натурі. Звертають на себе назви байок, що найчастіше складаються з двох слів – назв людей і тварин, птахів, комах, риб тощо. У таких назвах не завжди можна відгадати головну думку, але можна передбачити діалог між названими персонажами байки, який пожвавлює розвиток події на відміну від описовості.
+				div.delete.rm
+				div.plusA.rm
+
+			div.container
+				p.selected.
+					Як можна переконатися, байки – це коротенькі прозові чи віршовані розповіді, що мають дидактичну частину (повчання морального характеру). Повчання є обов`язковою ознакою цього літературного жанру. Байки нагадують стислі оповідання про тварин, птахів та людей, про живих істот і предмети неживої природи. Вони надзвичайно прості за побудовою, лаконічні за словесним вираженням сюжету і головної думки. Це ніби щоденне спостереження розумного дослідника над най різноманітними явищами і подіями в навколишньому світі, на підставі результатів яких він, осмислюючи, виводить певні закономірності у формі моральних повчань та закликів.
+				div.delete.rm
+				div.plusA.rm
+		button#save зберегти
+
+	//- для під меню 
+	include ./includes/subMenu.jade
+
+	//- меню що зявляється при виділенні тесту
+	include ./includes/selectMenu.jade
+
+	include ./includes/video_popup.jade
+
+	input(type='file', id='add-image', class='none rm', name='image')
+
+	//- script(src='js/vendor/require.js', data-main='js/newArticle')
+	script(src='js/vendor/require.js', data-main='js/build/newArticle')

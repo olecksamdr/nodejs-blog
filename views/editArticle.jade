@@ -1,0 +1,32 @@
+extends layout/page.jade
+
+block css
+	link(rel='stylesheet', href='../../css/blogPage.css')
+block js
+	script(src='../../js/vendor/prism.js')
+	script(src="../../js/build/userButton.js")
+block content
+	include ./includes/navigation.jade
+
+	div.fullScreen
+		div(class='cont')
+			div(class='load')
+			div(class='line')
+			h3(id='prog') 
+
+	div#wrapper
+		div.flex-wrapper.
+			!{article.body}
+	button#save оновити
+
+	//- для під меню 
+	include ./includes/subMenu.jade
+
+	//- меню що зявляється при виділенні тесту
+	include ./includes/selectMenu.jade
+	include ./includes/video_popup.jade
+
+	input(type='file', id='add-image', class='none rm', name='image')
+
+	script(src='../js/vendor/require.js', data-main='../js/build/editArticle')
+	//- script(src='../js/vendor/require.js', data-main='../js/editArticle')

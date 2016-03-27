@@ -1,0 +1,612 @@
+/* ===========================================================
+  Стилі для додавання нової статті
+=========================================================== */
+body {
+    margin:0;
+    padding: 0;
+    font: normal 22px/32px 'Arimo', sans-serif;
+    color:rgb(90, 90, 90);
+}
+
+a {
+    text-decoration: none;
+    color:rgb(90, 90, 90);
+}
+
+p a {
+    border-bottom: 2px solid rgb(90, 90, 90);
+}
+
+button {
+  font: normal 22px 'Arimo';
+  color: #5a5a5a;
+}
+
+.none {display: none;}
+
+@import 'imports/menu.css';
+
+/* ===========================================================
+  стилі для банера
+=========================================================== */
+
+#wrapper {
+  display: block;
+  max-width: 1024px;
+  min-height: 100%;
+  margin: 70px auto;
+}
+
+.flex-wrapper {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+  font: normal 50px 'Arimo';
+  margin: 40px 0;
+}
+
+.title:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  right: -45px;
+  background: url(../img/blogPage/pen.svg) no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+}
+.banner {
+  position: relative;
+  display: block;
+  width:80%;
+  min-height: 50px;
+}
+
+.banner img{
+  width: 100%;
+}
+
+.banner .delete {top: -15px; right: -15px;}
+.addBanner {margin-top: -20px; margin-left: -20px;}
+.banner:hover .addBanner{top: 50%;opacity: 1;}
+
+.banner .plusA {bottom: -40px;}
+
+.banner + .container {
+  margin-top: 50px;
+}
+
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 10px;
+  margin: 20px 0;
+}
+
+.container .delete {top: -19px; right: -20px;}
+
+#wrapper p {
+  text-align: left;
+  margin: 10px 0 0 0;
+  padding: 0 20px;
+  word-wrap: break-word;
+}
+
+p.selected {
+  border-left: 3px solid #C57575;
+}
+
+#wrapper .date {
+  font-size: 0.8em;
+  display: block;
+  padding: 5px;
+  color: #777474;
+  margin: 10px auto;
+  width: 120px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 26px;
+}
+
+/* ===========================================================
+  стилі для редагування картинок
+=========================================================== */
+
+.img-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+
+.img-container .delete {top: 5px; right: -5px;}
+
+.img-container img {margin-top: 10px;}
+.img-container:hover .resize{top: 50%;opacity: 1;}
+.img-container:hover .add{top: 50%;opacity: 1;}
+.img-container:hover .arrRight{top: 50%;opacity: 1;}
+.img-container:hover .arrCenter{top: 50%;opacity: 1;}
+.img-container:hover .arrLeft{top: 50%;opacity: 1;}
+
+.left{
+  float: left;
+  margin-right: 16px;
+  margin-left: 20px;
+}
+
+.right {
+  float: right;
+  margin-left: 16px;
+  margin-right: 20px;
+}
+
+.add, 
+.resize,
+.arrRight,
+.arrCenter,
+.arrLeft,
+.addBanner {
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  margin-top: -20px;
+  background-image: url(../img/blogPage/add.svg);
+  /*border:3px solid rgba(0,0,0,.8);*/
+  background-color: rgba(255,255,255,.7); 
+  background-size: 30px 30px;
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  opacity: 0;
+
+}
+
+.add,
+.resize {
+  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.2s;
+}
+
+.add {  
+  margin-left: -55px;
+}
+.resize {
+  background-image: url(../img/blogPage/resize2.svg);
+  margin-left: 15px;
+}
+
+.arrRight,
+.arrCenter,
+.arrLeft {
+  margin-top: -70px;
+}
+
+.arrLeft {
+  background-image: url(../img/blogPage/arrLeft.svg);
+  /*margin-left: 15px;*/
+  margin-left: -80px;
+}
+
+.arrCenter {
+  background-image: url(../img/blogPage/center.svg);
+  margin-left: -20px;
+  transition-delay: 0.1s;
+  -webkit-transition-delay: 0.1s;
+}
+
+.arrRight {
+  background-image: url(../img/blogPage/arrRight.svg);
+  margin-left: 40px;
+}
+
+.resize:hover,
+.add:hover,
+.arrRight:hover,
+.arrCenter:hover,
+.arrLeft:hover,
+.addBanner:hover {
+  background-color: rgba(255,255,255,1);
+  /*border-radius: 50%;*/
+}
+
+
+
+.delete {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-image: url(../img/blogPage/delete.svg);
+  background-color: #fff;
+  background-size: 13px 13px;
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+
+  border-radius: 50%;
+}
+
+.plusA {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 50%;
+  margin: -15px 0 0 0;
+  background-image: url(../img/blogPage/plus.svg);
+  background-size: 30px 30px;
+  /*opacity: 0.3;*/
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+.plusA {bottom: -35px;}
+.plusA:hover {opacity: 1;}
+
+.plusA .sub-menu {opacity: 1;}
+/* ===========================================================
+  стилі для інтерфейсу зміни розміру картинок
+=========================================================== */
+.resize-handle-ne,
+.resize-handle-ne,
+.resize-handle-se,
+.resize-handle-nw,
+.resize-handle-sw {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: rgba(0,0,0,.7);
+    z-index: 999;
+}
+
+.resize-handle-nw {
+    top: 11px;
+    left: 0;
+    cursor: nw-resize;
+}
+
+.resize-handle-sw {
+    bottom: 10px;
+    left: 0;
+    cursor: sw-resize;
+}
+
+.resize-handle-ne {
+    top: 10px;
+    right: 0;
+    cursor: ne-resize;
+}
+
+.resize-handle-se {
+    bottom: 10px;
+    right: 0;
+    cursor: se-resize;
+}
+
+/* ==================================================
+   Під-меню що викликається додавання нових елементів
+   ================================================== */
+.appear {
+    -webkit-animation: appear .4s;
+    animation: appear .4s
+}
+
+.disappear {
+    -webkit-animation: disappear .4s;
+    animation: disappear .4s
+}
+
+@import 'imports/sub-menu.css';
+@import 'imports/pop-up-video.css';
+
+
+/* SAVE BUTTON */
+
+#save {
+  display: block;
+  cursor: pointer;
+  margin: 60px auto;
+  width: 250px;
+  height: 50px;
+  border: 3px solid #C57575;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+
+#save:hover,
+#save:active {
+  background: #C57575;
+  color: #fff;
+}
+
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    margin-top: -25px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}
+
+/* ====================================== 
+    РЕАЛІЗАЦІЯ АНІМАЦІ ЗАГРУЗКИ
+   ======================================*/
+
+.fullScreen {
+  position: fixed;
+  z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,.6);
+}
+.cont{
+  display: block;
+  width: 150px;
+  height: 100px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin: -100px 0 0 -75px;
+  overflow: hidden;
+}
+.load {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left:  10px;
+  background: transparent;
+  border: 5px solid #5a5a5a;
+  animation: step1 1s ease-in infinite;
+  -webkit-animation: step1 1s ease-in infinite;
+}
+.line {
+  dispay: block;
+  width: 250px;
+  height: 3px;
+  position: absolute;
+  border-bottom: 7px dotted #5a5a5a;
+  bottom: 35px;
+  left: 0px;
+  animation: step2 1s ease-in infinite;
+  -webkit-animation: step2 1s ease-in infinite;
+}
+
+#prog {
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: -15px;
+  left:  70px;
+  color: #5a5a5a;
+  font: 30px 'Arial';
+}
+
+@keyframes step1{
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@-webkit-keyframes step1{
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes step2{
+  from {left: 0;}
+  to {
+    left: -100px;
+  }
+}
+
+@-webkit-keyframes step2{
+  from {left: 0;
+  }
+  to {
+    left: -100px;
+  }
+}
+
+
+
+
+/* для мобільних телефонів */
+@media screen and (max-width: 640px) {
+  body {
+    font: normal 18px/28px 'Arimo', sans-serif
+  }
+
+  #menu {
+      height: 45px;
+      background-image: url(../img/menu2.svg);
+      background-size: 30px 30px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      /*opacity: .9;*/
+
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+  }
+
+  #menu a {
+    position: relative;
+    display: none;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .before-articles {
+      margin: 0px auto;
+      width: 170px;
+      font-size: 20px;
+      margin-top: 100px;
+  }
+
+  .before-articles::before {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      left: -71px;
+      margin-top: -30px;
+  }
+
+  .before-articles::after {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    right: -73px;
+    margin-top: -30px;
+  }
+
+  .title {
+    font: normal 34px 'Arimo';
+  }
+
+  .title::after {
+    width: 30px;
+    height: 30px;
+    right: -28px;
+}
+
+.container .delete {
+    top: 8px;
+    right: -4px;
+}
+
+.plusA {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+}
+
+}
+
+.menuFade {
+  -webkit-animation: showMenu .3s ease;
+          animation: showMenu .3s ease;
+}
+
+.menuHide {
+  -webkit-animation: hideMenu .3s ease;
+          animation: hideMenu .3s ease;
+}
+
+@-webkit-keyframes showMenu{
+  0% {opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@keyframes showMenu{
+  0% {opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-webkit-keyframes hideMenu{
+  0% {opacity: 1;}
+  100%{opacity: 0;}
+}
+
+@keyframes hideMenu{
+  0% {opacity: 1;}
+  100%{opacity: 0;}
+}
+
+@import 'imports/prism.css';
+@import 'imports/iframe.css';
+
+/* стилі для меню що зявляється при виділенні тексту*/
+@import 'imports/selectMenu.css';

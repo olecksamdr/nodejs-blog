@@ -1,0 +1,15 @@
+{
+	"mongo": {
+		"user": "admin",
+		"password": "R6aPS1DtV3WM"
+	},
+	"session": {
+		"secret": "cryptoprimeNumber",
+		"key": "sid",
+		"cookie": {
+			"path": "/",
+			"httpOnly": true,
+			"maxAge": null
+		}
+	} 
+}

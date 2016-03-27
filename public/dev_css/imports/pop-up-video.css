@@ -1,0 +1,112 @@
+.pop-up {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 3;
+    width: 300px;
+    height: 41px;
+    box-shadow: 10px 14px 18px rgba(90,90,90,.4),-1px -1px 2px rgba(90,90,90,.1);
+    border: 0 solid #f0f0f0;
+    border-radius: 3px;
+    background: #fff;
+    border-radius: 50px 0 0 50px;
+}
+.pop-up label,
+.pop-up input {
+    position: relative;
+    text-align: center;
+    font: 16px Arial;
+    display: inline-block;
+    line-height: 30px;
+    padding: 5px;
+    top: -2px;
+    left: 0;
+    }
+
+.pop-up label{
+    width: 50px;
+    text-transform: lowercase;
+    background: #00c9ff;
+    background: -webkit-linear-gradient(left,#56dbff,#79eaf4);
+    background: linear-gradient(90deg,#56dbff,#79eaf4);
+    border: 1px solid #1eb1ff;
+    color: #00283c;
+    border-radius: 20px 0 0 20px;
+    }
+
+.pop-up input {
+    width: 180px;
+    border: none;
+    outline: none;
+    background: #fff; 
+    }
+
+.pop-up button {
+    display: inline-block;
+    border: none;
+    background: #fff;
+    border: none;
+    /*border-radius: 5px;*/
+    width: 40px;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+}
+
+button:focus {outline: none;}
+
+.pop-up-appear {
+    -webkit-animation: pop-appear .4s;
+    animation: pop-appear .4s
+}
+
+.pop-up-disappear {
+    -webkit-animation: pop-disappear .4s;
+    animation: pop-disappear .4s
+}
+
+@-webkit-keyframes pop-appear {
+  0% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes pop-appear {
+  0% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@-webkit-keyframes pop-disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}
+
+@keyframes pop-disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}

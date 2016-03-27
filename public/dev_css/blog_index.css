@@ -1,0 +1,227 @@
+/* ===========================================================
+  Основна структура
+=========================================================== */
+body {
+    margin:0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 32px;
+    font-family: 'Arimo', arial, sans-serif;
+    color:rgb(90, 90, 90);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(90, 90, 90);
+}
+
+p a {
+    border-bottom: 2px solid rgb(90, 90, 90);
+}
+
+@import 'imports/menu.css';
+
+/* ===========================================================
+  стилі  для напису: ОСТАННІ СТАТТІ
+   =========================================================== */
+.before-articles {
+  margin: 100px auto;
+  position: relative;
+  width: 200px;
+  height: 100px;
+}
+
+.before-articles h3 {
+  text-align: center;
+  line-height: 100px;
+  font-weight: normal;
+  font-size: 1.2em;
+  color: #5a5a5a;
+}
+
+.before-articles:before {
+  opacity: 0.8;
+  content: '';
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: url(../img/news.svg);
+  position : absolute;
+  top: 0;
+  left: -110px;
+}
+
+.before-articles:after {
+  opacity: 0.8;
+  content: '';
+  display: block;
+  width: 100px;
+  height: 100px;
+   -webkit-transform: scaleX(-1);
+         transform: scaleX(-1);
+  background: url(../img/news.svg);
+  position : absolute;
+  top: 0;
+  right: -110px;
+}
+
+
+/* ===========================================================
+  стилі для секцій
+   =========================================================== */
+.center {
+    margin: 0;
+    padding-top: 20px;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+
+   -webkit-justify-content: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+
+   -webkit-align-items: center;
+    ms-flex-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.wrapper-1 {
+    margin-bottom: 80px;
+    margin-left: 25px;
+    margin-right: 25px;
+    overflow: hidden;
+    display: block;
+    width: 40%;
+    padding: 20px;
+    border-radius: 2px;
+    background: #ffffff;
+    border-top: 5px solid #9696B0;
+    border-left: 1px solid #9696B0;
+    border-right: 1px solid #9696B0;
+    box-shadow: 7px 9px 1px rgba(226, 226, 226, 0.22);
+}
+
+.wrapper-1 p,
+.wrapper-1 span {
+  padding: 10px 0 17px 18px;
+  font-size: 0.9em;
+  line-height: 25px;
+  word-wrap: break-word;
+}
+
+.wrapper-1 h1{
+   font: bold 35px 'Arimo', sans-serif;
+   text-align: center;
+}
+
+.wrapper-1 img {
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.article-link {
+  position: relative;
+  display: inline-block;
+  width: 106px;
+  left: 50%;
+   -webkit-transform: translateX(-50%);
+         transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.8em;
+  padding-top: 4px;
+  border-top: 3px solid #9696B0;
+}
+
+section.content {
+    display: block;
+}
+
+
+section .date {
+  border-radius: 26px;
+  border: 1px solid #c2c2ce;
+  color: #777474;
+  display: block;
+  font-size: 0.8em;
+  height: 24px;
+  line-height: 24px;
+  margin: 0 0 10px 20px;
+  padding: 5px;
+  text-align: center;
+  width: 112px;
+}
+
+.a-container {
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin: -20px 0 40px 0px;
+}
+
+.a-container a {
+  display: inline-block;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 0 #797979;
+  margin: 5px 10px;
+  color: #797979;
+
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.a-container a:hover {
+ box-shadow: 0 2px 0 #797979; 
+}
+
+.a-container .active {
+   box-shadow: 0 2px 0 #797979; 
+}
+
+.menuFade {
+  -webkit-animation: showMenu .3s ease;
+          animation: showMenu .3s ease;
+}
+
+.menuHide {
+  -webkit-animation: hideMenu .3s ease;
+          animation: hideMenu .3s ease;
+}
+
+@-webkit-keyframes showMenu{
+  0% {opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@keyframes showMenu{
+  0% {opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-webkit-keyframes hideMenu{
+  0% {opacity: 1;}
+  100%{opacity: 0;}
+}
+
+@keyframes hideMenu{
+  0% {opacity: 1;}
+  100%{opacity: 0;}
+}
+
+@import 'imports/media.css';

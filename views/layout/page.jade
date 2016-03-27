@@ -1,0 +1,54 @@
+doctype html
+html(lang='ua')
+	head
+		title #{title}
+		link(href='https://fonts.googleapis.com/css?family=Arimo&subset=cyrillic', rel='stylesheet', type='text/css')
+		meta( name='viewport', content='width=device-width, initial-scale=1')
+		meta(http-equiv="Cache-Control", content="no-cache")
+		block css
+		block js
+			//- script(src="js/build/userButton.js")
+	body
+		block content
+
+		script.
+			var menu = document.getElementById('menu');
+
+			var a = menu.getElementsByTagName('a');
+			menu.onclick = function () {
+				for (var i = 0; i < a.length; i++) {
+					a[i].style.display = 'block';
+					a[i].className = 'menuFade';
+
+					window.getSelection().removeAllRanges();
+				}
+			}
+
+			document.addEventListener('click', function (e) {
+				//- console.log(e.target.tagName.toLowerCase());
+				if (window.innerWidth <= 640) {
+					if (e.target.tagName.toLowerCase() != 'a' && e.target.tagName.toLowerCase() != 'nav') {
+						for (var i = 0; i < a.length; i++) {
+							a[i].className = 'menuHide';
+						}
+						setTimeout(function () {
+							for (var i = 0; i < a.length; i++) {
+								a[i].style.display = 'none';
+							}
+						}, 270);
+					}
+				}
+			}, false);
+
+
+			function exit() {
+				var form = document.createElement("form");
+				form.method = "POST";
+				form.action = "/logout";
+
+				document.body.appendChild(form);
+
+				form.submit();
+
+				return false;
+			}

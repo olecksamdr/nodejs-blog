@@ -1,0 +1,23 @@
+if admin
+	nav(id='menu')
+		a(href='/manage') Головна
+		a(href='/newArticle') Додати статтю
+		a(href='#') Галерея
+		if user 
+			div.user
+				div.wrap-cnt
+					div.control
+						a(href="#") Акаунт
+						a(href="#") Повідомлення
+						a(href="#" onclick="exit()") Вихід
+		else
+			a(href='/registration') Увійти
+else
+	nav(id='menu')
+		a(href='/') Головна
+		a(href='/page/1') Статті
+		a(href='#') Галерея
+		if user 
+			a(href='#', onclick='exit()') Вийти
+		else
+			a(href='/registration') Увійти

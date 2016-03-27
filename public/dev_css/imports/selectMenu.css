@@ -1,0 +1,117 @@
+#select-menu {
+  display: block;
+  position: fixed;
+  height: 46px;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  border-radius: 6px;
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  font-size: 0;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+#select-menu button {
+  display: inline-block;
+  font-size: 18px;
+  width: 61px;
+  height: 100%;
+  line-height: 45px;
+  box-shadow: 1px 0 0 #ccc;
+  padding: 0;
+  margin: 0;
+  margin-left: 1px;
+  color: #8b8a8a;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center center;
+  border: none;
+  transition: all ease 0.2;
+  font: bold 30px 'Arial', sans-serif;
+  transition: all 0.3s ease;
+}
+#select-menu #bold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#select-menu #italic {
+  font-style: italic;
+  font-family: serif;
+}
+#select-menu #link {
+  background-image: url(../img/link.svg);
+  background-position: center;
+}
+#select-menu button:first-child {
+  margin-left: 1px;
+}
+#select-menu button:last-child {
+  box-shadow: none;
+}
+#select-menu button:hover {
+  background-color: #f9f9f9;
+}
+#select-menu button:focus {
+  outline: none;
+  background-color: #f0f0f0;
+  border: none;
+}
+
+/*.appear {
+    -webkit-animation: appear .2s;
+    animation: appear .2s;
+}
+
+.disappear {
+    -webkit-animation: disappear .2s;
+    animation: disappear .2s;
+}
+
+-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    margin-top: -25px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -5px;
+  }
+}*/

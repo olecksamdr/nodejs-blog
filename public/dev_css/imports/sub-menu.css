@@ -1,0 +1,62 @@
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: -80px;
+    left: -192px;
+    height: 56px;
+    width: 406px;
+    border-radius: 6px;
+    background: #fdfdfd;
+    border: 1px solid #ccc;
+    font-size: 0;
+    box-shadow: 0 0 2px rgba(0,0,0,.4);
+}
+
+.sub-menu button {
+    display: inline-block;
+    font-size: 18px; 
+    width: 81px;
+    height: 100%;
+    line-height: 45px;
+    box-shadow: 1px 0 0 #ccc;
+    padding: 0;
+    margin: 0;
+    color: #8b8a8a;
+    cursor: pointer;
+    background-image: url(../img/blogPage/img.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: center center;
+    border: none;
+    transition: all ease 0.2;
+}
+
+#p {
+  background-image: url(../img/blogPage/p.svg);
+}
+
+#p-selected {
+  background-image: url(../img/blogPage/select.svg);
+}
+
+#code {
+  background-image: url(../img/blogPage/code.svg);
+}
+
+#video {
+  background-image: url(../img/blogPage/video.svg);
+}
+
+.sub-menu button:first-child {
+    margin-left: 1px;
+}
+.sub-menu button:last-child {
+    box-shadow: none;
+}
+
+.sub-menu button:hover {
+    background-color: #f0f0f1;
+    box-shadow: -1px 0 0 #ccc,
+                 1px 0 0 #ccc;
+}
